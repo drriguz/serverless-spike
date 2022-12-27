@@ -1,0 +1,92 @@
+\documentclass{scrartcl}
+
+\usepackage[depth=subsubsection]{bookmark}
+\usepackage{titling}
+\usepackage{amsmath}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\usepackage[centering,paperwidth=180mm,paperheight=230mm,%
+body={390pt,530pt}]{geometry}
+
+\usepackage{fontspec}
+
+\usepackage{tabularx, booktabs, makecell}
+\renewcommand{\arraystretch}{1.5}
+
+% see: https://tex.stackexchange.com/questions/109467/footnote-in-tabular-environment
+\usepackage[flushleft]{threeparttable}
+
+\usepackage{xeCJK}
+\setCJKmainfont{Source Han Serif SC}
+\setCJKsansfont{Source Han Sans SC}
+\setCJKmonofont{Hack FC Ligatured}
+
+\setmainfont{Times New Roman}
+\setsansfont{Source Han Sans SC}
+\setmonofont{Consolas}
+
+\usepackage{parskip}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{tikz}
+\usepackage{import}
+\usepackage{graphicx} 
+\graphicspath{{images/}}
+\usepackage{transparent}
+\usepackage[usetransparent]{svg}
+\usepackage{cleveref}
+\usepackage{pifont}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true
+}
+\usepackage{soul}
+\usepackage[block=ragged]{biblatex}
+
+\addbibresource{ref.bib}
+
+\usepackage{listings}
+\usepackage[outputdir=./build/,newfloat]{minted}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\setminted{
+   breaklines,
+   linenos,
+   frame=lines,
+   rulecolor=gray,
+   framerule=0.5pt
+}
+\usemintedstyle{colorful}
+
+\title{业界Serverless架构调研}
+\author{李海峰}
+
+\begin{document}
+
+
+\begin{titlingpage}
+\maketitle
+\begin{abstract}
+    本调研旨在根据公开资料搜集业界Serverless实现架构，
+    以了解其实现方式、遇到的困难等，
+    为我们设计实现Serverless平台提供参考。
+\end{abstract}
+\end{titlingpage}
+\tableofcontents
+
+\section{概述}
+\subimport{}{overview}
+\section{技术架构选型}
+\subimport{}{arch}
+\section{性能参考指标}
+
+\clearpage
+\printbibliography 
+\end{document}

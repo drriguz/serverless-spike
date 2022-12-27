@@ -1,0 +1,47 @@
+\subsection{基础设施}
+基础设施是指Serverless底层的运行基础，
+需要支持虚拟化/资源隔离/扩缩容等，
+通常有几种选择：
+
+\begin{itemize}
+    \item \textbf{基于Docker}：基于Docker平台加上自主开发的框架实现，以及基于Docker的FaaS平台（如\textbf{Fn Project}）
+    \item \textbf{基于Kubernetes}：Kubernetes已经是事实上的云原生标准，因此使用Kubernetes作为底层运行时是一个最常规的选择，且其本身自带了容器编排、服务治理等功能，生态较好
+    \item \textbf{基于Knative}：谷歌开源的基于Kubernetes的Serverless运行环境
+    \item \textbf{Firecracker/microVM}：亚马逊开源的虚拟化技术，并用在AWS Lambda、Fargate等产品上
+    \item \textbf{Apache OpenWhisk}: 一个开源的FaaS平台，支持在Kubernetes、Docker等多种平台
+    \item \textbf{EasyFaaS}: 百度开源的函数计算服务引擎，支持多种运行平台，包括 Docker、Kubernetes 及裸机等
+\end{itemize}
+
+部分产品的架构选型如\cref{table:serverless-infras}所示。
+
+\begin{table}[h!]
+\centering
+\begin{threeparttable}
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \toprule
+        \textbf{架构} & \textbf{产品} \\
+        \midrule
+        Kubernetes & 美团Nest\cite{meituan_serverless_nest, meituan_serverless_2}、ByteFaaS\cite{bytedance_faas}、Nimbella\cite{nimbella_k8s} \\
+        \hline
+        Docker & 阿里函数计算\cite{aliyun_faas_arch_2}\tnote{1}、Oracle Functions\cite{overview_oracle_functions} \\
+        \hline
+        Knative & Google Cloud Run\cite{gcr_knative}、工商银行Serverless\cite{icbc_faas_arch}\tnote{1}  \\
+        \hline
+        Firecracker/microVM & AWS Lambda、AWS Fargate\cite{firecracker_home}、腾讯云函数\cite{tecent_faas_cold_start, tecent_serverless}\tnote{2} \\
+        \hline
+        Apache OpenWhisk & IBM Cloud Functions\cite{how_ibm_cloud_functions_works} \\
+        \hline
+        EasyFaaS & 百度函数计算CFC\cite{baidu_serverless_arch}、工商银行Serverless\cite{icbc_faas_arch} \\
+        \bottomrule
+    \end{tabularx}
+\begin{tablenotes}
+    \item[1] 阿里函数计算第二代架构已经改为用神龙裸金属+安全容器实现\cite{aliyun_faas_arch_2}
+    \item[2] 腾讯云使用自研的轻量级虚拟化技术，不确定是否与microVM是相同的技术
+    \item[3] 工商银行函数计算1.0使用Knative，后面改用百度函数计算产品
+    \end{tablenotes}
+\end{threeparttable}
+\caption{一些Serverless平台的基础设施}
+\label{table:serverless-infras}
+\end{table}
+\subsection{开发语言}
+\subsection{架构设计}

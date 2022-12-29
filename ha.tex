@@ -45,3 +45,25 @@ Google Cloud Run单个容器默认限制为80，最高可设置为1000\cite{goog
     \caption{AWS Lambda架构中Assignment Service的高可用设计\cite{aws_lambda_2022}}
     \label{lambda_assignment_service}
 \end{figure}
+
+\subsection{优化资源分配}
+不同的函数负载运行时长、并发度、资源占用不尽相同，
+如果资源利用率低，占用过多的机器，
+会对整体运行效率造成影响（例如影响缓存），
+并可能导致弹性伸缩问题，
+因此在Serverless架构中，
+需要对负载在工作节点上进行合理地分配，
+以达到较佳的资源利用率。
+例如，AWS Lambda使用机器学习对节点的工作负载进行优化，
+如\cref{lambda_distribution}所示；
+美团Nest使用称之为合并部署的方式将多个函数部署到同一节点上
+\cite{meituan_serverless_nest}。
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/lambda_distribution.png}
+    \caption{AWS Lambda使用机器学习对节点的工作负载进行优化分布\cite{aws_lambda_2022}}
+    \label{lambda_distribution}
+\end{figure}
+
+

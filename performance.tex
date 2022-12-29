@@ -1,0 +1,32 @@
+根据公开的资料搜集列举一些Serverless平台的性能指标，
+如\cref{table:serverless-performance}所示。
+
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\toprule
+\textbf{指标} & \textbf{性能} & \textbf{产品} \\
+\midrule
+Lambda最小内存 & $ 128Mb $ & AWS Lambda\cite{aws_lambda_2022} \\
+\hline
+最大自定义镜像大小 & $ 10Gb $ & AWS Lambda\cite{aws_lambda_2022} \\
+\hline
+最大调用QPS & $ > 9600W $ & 字节ByteFaaS\cite{bytedance_faas} \\
+\hline
+函数规模 & $ > 10W $ & 字节ByteFaaS\cite{bytedance_faas} \\
+\hline
+P99冷启动时间 & $ 1000ms - 3000ms $ & AWS Lambda\cite{aws_lambda_2022} \\
+\hline
+P99冷启动时间 & $ 6000ms $ & 美团Nest\cite{meituan_serverless_nest} \\
+\hline
+冷启动时间（Java/Go） & $ < 100ms $ & 字节ByteFaaS\cite{bytedance_faas} \\
+\hline
+冷启动时间（Javascript/WebAssembly） & $ < 1ms $ & 字节ByteFaaS\cite{bytedance_faas} \\
+\hline
+扩容速度 & $ 500/min/account $ & 腾讯云\cite{tecent_cf_doc} \\
+\bottomrule
+\end{tabularx}
+
+\caption{一些性能指标}
+\label{table:serverless-performance}
+\end{table}
